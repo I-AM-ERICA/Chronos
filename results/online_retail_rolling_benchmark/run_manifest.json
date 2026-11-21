@@ -1,0 +1,76 @@
+{
+  "dataset": "online-retail-revenue",
+  "data_path": "/root/chronos-sales/data/online_retail_revenue/daily_revenue.parquet",
+  "data_sha256": "7bcd5ad95acf3457dc7bbdb48914e07305997d0795d6bd26a2719f238d4b8499",
+  "fold_count": 3,
+  "folds": [
+    {
+      "fold": 1,
+      "train_end": 627,
+      "validation_start": 627,
+      "validation_end": 655,
+      "test_start": 655,
+      "test_end": 683,
+      "train_end_date": "2011-08-19",
+      "validation_start_date": "2011-08-20",
+      "validation_end_date": "2011-09-16",
+      "test_start_date": "2011-09-17",
+      "test_end_date": "2011-10-14"
+    },
+    {
+      "fold": 2,
+      "train_end": 655,
+      "validation_start": 655,
+      "validation_end": 683,
+      "test_start": 683,
+      "test_end": 711,
+      "train_end_date": "2011-09-16",
+      "validation_start_date": "2011-09-17",
+      "validation_end_date": "2011-10-14",
+      "test_start_date": "2011-10-15",
+      "test_end_date": "2011-11-11"
+    },
+    {
+      "fold": 3,
+      "train_end": 683,
+      "validation_start": 683,
+      "validation_end": 711,
+      "test_start": 711,
+      "test_end": 739,
+      "train_end_date": "2011-10-14",
+      "validation_start_date": "2011-10-15",
+      "validation_end_date": "2011-11-11",
+      "test_start_date": "2011-11-12",
+      "test_end_date": "2011-12-09"
+    }
+  ],
+  "config": {
+    "model_id": "amazon/chronos-t5-small",
+    "dataset_repo": "uci-online-retail-ii",
+    "dataset_name": "online-retail-revenue",
+    "frequency": "D",
+    "context_length": 512,
+    "prediction_length": 28,
+    "validation_length": 28,
+    "seasonal_period": 7,
+    "min_past": 60,
+    "num_samples": 20,
+    "seed": 42,
+    "validation_series": 1,
+    "max_steps": 1000,
+    "save_steps": 100,
+    "learning_rate": 0.001,
+    "effective_batch_size": 32,
+    "target_name": "net_product_revenue_proxy_gbp",
+    "currency": "GBP",
+    "monte_carlo_draws": 10000
+  },
+  "versions": {
+    "chronos-forecasting": "1.5.3",
+    "torch": "2.7.1+cu128",
+    "scikit-learn": "1.7.2",
+    "xgboost": "2.1.4",
+    "catboost": "1.2.8",
+    "statsforecast": "2.0.3"
+  }
+}

@@ -1,0 +1,4 @@
+horizon_days,recommended_context_days,recommended_mean_WAPE,best_mean_WAPE,selection_rule
+7,28,0.24940416974545135,0.24940416974545135,shortest context within 2 percentage points of best mean WAPE
+14,28,0.21854760169759094,0.21854760169759094,shortest context within 2 percentage points of best mean WAPE
+28,56,0.29658321791717257,0.2798201969745695,shortest context within 2 percentage points of best mean WAPE

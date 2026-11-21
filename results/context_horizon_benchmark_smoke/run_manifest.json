@@ -1,0 +1,16 @@
+{
+  "experiment": "context_horizon_benchmark_smoke",
+  "dataset": "UCI Online Retail II daily net revenue",
+  "model": "chronos-online-retail-v0.1",
+  "folds": 2,
+  "fold_step_days": 28,
+  "grid": {
+    "7": [14, 28],
+    "14": [28, 56],
+    "28": [56, 60]
+  },
+  "num_samples": 20,
+  "seed": 42,
+  "device": "cpu",
+  "result_status": "preliminary"
+}

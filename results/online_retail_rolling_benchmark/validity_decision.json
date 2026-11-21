@@ -1,0 +1,13 @@
+{
+  "criterion": "Fine-tuned Chronos ranks in the top 3 by mean test WAPE; ties use mean MASE then mean MAE.",
+  "chronos_rank": 4,
+  "pass": false,
+  "ranked_models": [
+    "chronos_finetuned",
+    "random_forest",
+    "xgboost",
+    "catboost",
+    "auto_arima",
+    "auto_ets"
+  ]
+}
