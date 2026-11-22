@@ -318,7 +318,7 @@ def _write_chronos_marker(fold_dir: Path, checkpoint: Path, reused: bool) -> Non
         str(selected_dir.resolve()), encoding="utf-8"
     )
     checkpoint_files = [path for path in selected_dir.iterdir() if path.is_file()]
-    selection = {
+    selection: dict[str, Any] = {
         "checkpoint": str(selected_dir.resolve()),
         "source_checkpoint": str(checkpoint.resolve()),
         "reused_existing_fold3": reused,
@@ -334,7 +334,7 @@ def _write_chronos_marker(fold_dir: Path, checkpoint: Path, reused: bool) -> Non
     selection_path = marker_dir / "selection.json"
     selection_path.write_text(json.dumps(selection, indent=2), encoding="utf-8")
     manifest_path = fold_dir / "models" / "model_manifest.json"
-    manifest = (
+    manifest: dict[str, Any] = (
         json.loads(manifest_path.read_text(encoding="utf-8"))
         if manifest_path.exists()
         else {"selected_settings": {}, "artifacts": {}, "versions": _versions()}

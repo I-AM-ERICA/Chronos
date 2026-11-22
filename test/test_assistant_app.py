@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import date, timedelta
+from pathlib import Path
 from unittest.mock import patch
 
 import numpy as np
@@ -10,7 +11,6 @@ from streamlit.testing.v1 import AppTest
 from chronos_sales.assistant_app import _build_forecast_chart
 from chronos_sales.assistant_forecast import forecast_with_pipeline
 from chronos_sales.assistant_storage import RevenueStore
-from chronos_sales.config import PROJECT_ROOT
 
 
 class AppMockPipeline:
@@ -40,7 +40,10 @@ def test_streamlit_registered_revenue_to_selected_forecast_sentence(
     monkeypatch.setenv("CHRONOS_MODEL_PATH", str(model_path))
     monkeypatch.delenv("CLOVA_STUDIO_API_KEY", raising=False)
 
-    app_path = PROJECT_ROOT / "assistant_app.py"
+    # Resolve the entry point from the checked-out test file. PROJECT_ROOT is a
+    # runtime data-path default and can point at the Python installation when
+    # the package is installed through an editable wheel in CI.
+    app_path = Path(__file__).resolve().parents[1] / "assistant_app.py"
     with patch(
         "chronos_sales.assistant_app.cached_pipeline", return_value=AppMockPipeline()
     ):
